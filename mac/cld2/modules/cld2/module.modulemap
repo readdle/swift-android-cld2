@@ -1,0 +1,4 @@
+module libcld2 [system] {
+    header "cld2.h"
+    export *
+}
