@@ -1,0 +1,6 @@
+*.xcuserstate
+*.xccheckout
+cld2.xcodeproj/xcuserdata
+*.xcworkspacedata
+*.xcsettings
+*.xcscmblueprint
