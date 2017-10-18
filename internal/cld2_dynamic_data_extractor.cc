@@ -21,15 +21,15 @@
 
 using namespace std;
 namespace CLD2DynamicDataExtractor {
-static int DEBUG=0;
-void setDebug(int debug) {
-  DEBUG=debug;
+static int DEBUG_FLAG=0;
+void setDEBUG_FLAG(int DEBUG_FLAG) {
+  DEBUG_FLAG=DEBUG_FLAG;
 }
 
 int advance(FILE* f, CLD2::uint32 position) {
   const char ZERO = 0;
   int pad = position - ftell(f);
-  if (DEBUG) fprintf(stdout, "  Adding %d bytes of padding\n", pad);
+  if (DEBUG_FLAG) fprintf(stdout, "  Adding %d bytes of padding\n", pad);
   while (pad-- > 0) {
     fwrite(&ZERO,1,1,f);
   }
@@ -37,9 +37,9 @@ int advance(FILE* f, CLD2::uint32 position) {
 }
 
 void writeChunk(FILE *f, const void* data, CLD2::uint32 startAt, CLD2::uint32 length) {
-  if (DEBUG) fprintf(stdout, "  Write chunk @%d, len=%d\n", startAt, length);
+  if (DEBUG_FLAG) fprintf(stdout, "  Write chunk @%d, len=%d\n", startAt, length);
   advance(f, startAt);
-  if (DEBUG) fprintf(stdout, "  Writing %d bytes of data", length);;
+  if (DEBUG_FLAG) fprintf(stdout, "  Writing %d bytes of data", length);;
   fwrite(data, 1, length, f);
 }
 
@@ -198,7 +198,7 @@ void initTableHeaders(const CLD2::CLD2TableSummary** summaries,
 // boundaries for maximum efficiency.
 void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
   CLD2::uint32 totalPadding = 0;
-  if (DEBUG) { fprintf(stdout, "Align for %d bits.\n", (alignment*8)); }
+  if (DEBUG_FLAG) { fprintf(stdout, "Align for %d bits.\n", (alignment*8)); }
   CLD2::uint32 headerSize = CLD2DynamicData::calculateHeaderSize(
     header->numTablesEncoded);
   CLD2::uint32 offset = headerSize;
@@ -207,7 +207,7 @@ void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
     int stateTablePad = alignment - (offset % alignment);
     if (stateTablePad == alignment) stateTablePad = 0;
     totalPadding += stateTablePad;
-    if (DEBUG) { fprintf(stdout, "Alignment for stateTable adjusted by %d\n", stateTablePad); }
+    if (DEBUG_FLAG) { fprintf(stdout, "Alignment for stateTable adjusted by %d\n", stateTablePad); }
     offset += stateTablePad;
     header->startOf_utf8PropObj_state_table = offset;
     offset += header->lengthOf_utf8PropObj_state_table;
@@ -217,7 +217,7 @@ void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
     int remapPad = alignment - (offset % alignment);
     if (remapPad == alignment) remapPad = 0;
     totalPadding += remapPad;
-    if (DEBUG) { fprintf(stdout, "Alignment for remap adjusted by %d\n", remapPad); }
+    if (DEBUG_FLAG) { fprintf(stdout, "Alignment for remap adjusted by %d\n", remapPad); }
     offset += remapPad;
     header->startOf_utf8PropObj_remap_base = offset;
     offset += header->lengthOf_utf8PropObj_remap_base;
@@ -227,7 +227,7 @@ void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
     int remapStringPad = alignment - (offset % alignment);
     if (remapStringPad == alignment) remapStringPad = 0;
     totalPadding += remapStringPad;
-    if (DEBUG) { fprintf(stdout, "Alignment for remapString adjusted by %d\n", remapStringPad); }
+    if (DEBUG_FLAG) { fprintf(stdout, "Alignment for remapString adjusted by %d\n", remapStringPad); }
     offset += remapStringPad;
     header->startOf_utf8PropObj_remap_string = offset;
     offset += header->lengthOf_utf8PropObj_remap_string; // null terminator already counted in initUtf8Headers
@@ -237,7 +237,7 @@ void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
     int fastStatePad = alignment - (offset % alignment);
     if (fastStatePad == alignment) fastStatePad = 0;
     totalPadding += fastStatePad;
-    if (DEBUG) { fprintf(stdout, "Alignment for fastState adjusted by %d\n", fastStatePad); }
+    if (DEBUG_FLAG) { fprintf(stdout, "Alignment for fastState adjusted by %d\n", fastStatePad); }
     offset += fastStatePad;
     if (header->lengthOf_utf8PropObj_fast_state > 0) {
       header->startOf_utf8PropObj_fast_state = offset;
@@ -251,7 +251,7 @@ void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
     int deltaOctaPad = alignment - (offset % alignment);
     if (deltaOctaPad == alignment) deltaOctaPad = 0;
     totalPadding += deltaOctaPad;
-    if (DEBUG) { fprintf(stdout, "Alignment for deltaOctaScore adjusted by %d\n", deltaOctaPad); }
+    if (DEBUG_FLAG) { fprintf(stdout, "Alignment for deltaOctaScore adjusted by %d\n", deltaOctaPad); }
     offset += deltaOctaPad;
     header->startOf_kAvgDeltaOctaScore = offset;
     offset += header->lengthOf_kAvgDeltaOctaScore;
@@ -262,7 +262,7 @@ void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
     int tablePad = alignment - (offset % alignment);
     if (tablePad == alignment) tablePad = 0;
     totalPadding += tablePad;
-    if (DEBUG) { fprintf(stdout, "Alignment for table %d adjusted by %d\n", x, tablePad); }
+    if (DEBUG_FLAG) { fprintf(stdout, "Alignment for table %d adjusted by %d\n", x, tablePad); }
     offset += tablePad;
     tableHeader.startOf_kCLDTable = offset;
     offset += tableHeader.lengthOf_kCLDTable;
@@ -270,7 +270,7 @@ void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
     int indirectPad = alignment - (offset % alignment);
     if (indirectPad == alignment) indirectPad = 0;
     totalPadding += indirectPad;
-    if (DEBUG) { fprintf(stdout, "Alignment for tableInd %d adjusted by %d\n", x, indirectPad); }
+    if (DEBUG_FLAG) { fprintf(stdout, "Alignment for tableInd %d adjusted by %d\n", x, indirectPad); }
     offset += indirectPad;
     tableHeader.startOf_kCLDTableInd = offset;
     offset += tableHeader.lengthOf_kCLDTableInd;
@@ -278,7 +278,7 @@ void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
     int scriptsPad = alignment - (offset % alignment);
     if (scriptsPad == alignment) scriptsPad = 0;
     totalPadding += scriptsPad;
-    if (DEBUG) { fprintf(stdout, "Alignment for scriptsPad %d adjusted by %d", x, scriptsPad); }
+    if (DEBUG_FLAG) { fprintf(stdout, "Alignment for scriptsPad %d adjusted by %d", x, scriptsPad); }
     offset += scriptsPad;
     tableHeader.startOf_kRecognizedLangScripts = offset;
     offset += tableHeader.lengthOf_kRecognizedLangScripts; // null terminator already counted in initTableHeaders
@@ -288,7 +288,7 @@ void alignAll(CLD2DynamicData::FileHeader* header, const int alignment) {
   // header as a sanity check
   header->totalFileSizeBytes = offset;
 
-  if (DEBUG) {
+  if (DEBUG_FLAG) {
     fprintf(stdout, "Data aligned.\n");
     fprintf(stdout, "Header size:  %d bytes\n", headerSize);
     fprintf(stdout, "Data size:    %d bytes\n", (offset - totalPadding));

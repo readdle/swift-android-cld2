@@ -18,9 +18,9 @@
 #include <stdint.h>
 
 namespace CLD2DynamicData {
-static int DEBUG=0;
-void setDebug(int debug) {
-  DEBUG=debug;
+static int DEBUG_FLAG=0;
+void setDEBUG_FLAG(int DEBUG_FLAG) {
+  DEBUG_FLAG=DEBUG_FLAG;
 }
 
 bool mem_compare(const void* data1, const void* data2, const int length) {
@@ -158,15 +158,15 @@ bool verify(const CLD2::ScoringTables* realData,
     CHECK_MEM_EQUALS(unigram_obj->fast_state, strlen(
       reinterpret_cast<const char*>(realData->unigram_obj->fast_state)) + 1); // null terminator included
   }
-  if (DEBUG) fprintf(stdout, "verified.\n");
+  if (DEBUG_FLAG) fprintf(stdout, "verified.\n");
 
-  if (DEBUG) fprintf(stdout, "Verifying kExpectedScore... ");
+  if (DEBUG_FLAG) fprintf(stdout, "Verifying kExpectedScore... ");
   CHECK_MEM_EQUALS(kExpectedScore, realSupplement->lengthOf_kAvgDeltaOctaScore);
-  if (DEBUG) fprintf(stdout, "verified.\n");
+  if (DEBUG_FLAG) fprintf(stdout, "verified.\n");
 
   // 3. Each table
   for (int x=0; x<NUM_TABLES; x++) {
-    if (DEBUG) fprintf(stdout, "Verifying table %d... ", x+1);
+    if (DEBUG_FLAG) fprintf(stdout, "Verifying table %d... ", x+1);
     const CLD2::CLD2TableSummary* realData = realTableSummaries[x];
     const CLD2::CLD2TableSummary* loadedData = loadedTableSummaries[x];
     // We need to calculate the table lengths to do the memcmp
@@ -185,9 +185,9 @@ bool verify(const CLD2::ScoringTables* realData,
     CHECK_MEM_EQUALS(kCLDTable, tableSizeBytes);
     CHECK_MEM_EQUALS(kCLDTableInd, indirectTableSizeBytes);
     CHECK_MEM_EQUALS(kRecognizedLangScripts, recognizedScriptsSizeBytes);
-    if (DEBUG) fprintf(stdout, "verified.\n");
+    if (DEBUG_FLAG) fprintf(stdout, "verified.\n");
   }
-  if (DEBUG) fprintf(stdout, "All data verified successfully.\n");
+  if (DEBUG_FLAG) fprintf(stdout, "All data verified successfully.\n");
   return true;
 }
 

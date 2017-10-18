@@ -28,7 +28,7 @@
 #include "scoreonescriptspan.h"
 
 namespace CLD2DynamicDataLoader {
-static int DEBUG=0;
+static int DEBUG_FLAG=0;
 
 CLD2DynamicData::FileHeader* loadHeaderFromFile(const char* fileName) {
   FILE* inFile = fopen(fileName, "r");
