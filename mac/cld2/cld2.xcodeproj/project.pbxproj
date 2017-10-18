@@ -87,6 +87,12 @@
 		D27BD4F41F979E4C00608E75 /* cld2_unittest_full.cc in Sources */ = {isa = PBXBuildFile; fileRef = D27BD4F31F979E4C00608E75 /* cld2_unittest_full.cc */; };
 		D27BD5021F97A12A00608E75 /* compact_lang_det_c.h in Headers */ = {isa = PBXBuildFile; fileRef = D27BD5011F97A12A00608E75 /* compact_lang_det_c.h */; };
 		D27BD5041F97A1F200608E75 /* compact_lang_det_c.cc in Sources */ = {isa = PBXBuildFile; fileRef = D27BD5031F97A1F200608E75 /* compact_lang_det_c.cc */; };
+		D27BD5131F97A5E400608E75 /* cld2Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27BD50A1F97A5E300608E75 /* cld2Swift.framework */; };
+		D27BD5181F97A5E400608E75 /* cld2SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27BD5171F97A5E400608E75 /* cld2SwiftTests.swift */; };
+		D27BD51A1F97A5E400608E75 /* cld2Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = D27BD50C1F97A5E300608E75 /* cld2Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D27BD5221F97A5F400608E75 /* LanguageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27BD5211F97A5F400608E75 /* LanguageDetector.swift */; };
+		D27BD5251F97A6F800608E75 /* libcld2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D27BD42D1F979C0C00608E75 /* libcld2.a */; };
+		D27BD5271F97A71300608E75 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D27BD5261F97A6FE00608E75 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +104,20 @@
 			remoteInfo = cld2;
 		};
 		D27BD4F01F979E3300608E75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D27BD4251F979C0C00608E75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D27BD42C1F979C0C00608E75;
+			remoteInfo = cld2;
+		};
+		D27BD5141F97A5E400608E75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D27BD4251F979C0C00608E75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D27BD5091F97A5E300608E75;
+			remoteInfo = cld2Swift;
+		};
+		D27BD5231F97A6F400608E75 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D27BD4251F979C0C00608E75 /* Project object */;
 			proxyType = 1;
@@ -221,6 +241,14 @@
 		D27BD5001F979EA700608E75 /* CLD2UnitTestOutputVerbose.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = CLD2UnitTestOutputVerbose.html; path = ../../../../docs/CLD2UnitTestOutputVerbose.html; sourceTree = "<group>"; };
 		D27BD5011F97A12A00608E75 /* compact_lang_det_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = compact_lang_det_c.h; path = ../../../../public/compact_lang_det_c.h; sourceTree = "<group>"; };
 		D27BD5031F97A1F200608E75 /* compact_lang_det_c.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = compact_lang_det_c.cc; path = ../../../../internal/compact_lang_det_c.cc; sourceTree = "<group>"; };
+		D27BD50A1F97A5E300608E75 /* cld2Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = cld2Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D27BD50C1F97A5E300608E75 /* cld2Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cld2Swift.h; sourceTree = "<group>"; };
+		D27BD50D1F97A5E300608E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D27BD5121F97A5E400608E75 /* cld2SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cld2SwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D27BD5171F97A5E400608E75 /* cld2SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cld2SwiftTests.swift; sourceTree = "<group>"; };
+		D27BD5191F97A5E400608E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D27BD5211F97A5F400608E75 /* LanguageDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDetector.swift; sourceTree = "<group>"; };
+		D27BD5261F97A6FE00608E75 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +275,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D27BD5061F97A5E300608E75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27BD5271F97A71300608E75 /* libc++.tbd in Frameworks */,
+				D27BD5251F97A6F800608E75 /* libcld2.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D27BD50F1F97A5E400608E75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27BD5131F97A5E400608E75 /* cld2Swift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -256,6 +301,8 @@
 				D27BD42F1F979C0C00608E75 /* cld2 */,
 				D27BD4D61F979D6B00608E75 /* cld2_test */,
 				D27BD4EA1F979E2B00608E75 /* cld2_test_full */,
+				D27BD50B1F97A5E300608E75 /* cld2Swift */,
+				D27BD5161F97A5E400608E75 /* cld2SwiftTests */,
 				D27BD42E1F979C0C00608E75 /* Products */,
 				D27BD4E11F979D9800608E75 /* Frameworks */,
 			);
@@ -267,6 +314,8 @@
 				D27BD42D1F979C0C00608E75 /* libcld2.a */,
 				D27BD4D51F979D6B00608E75 /* cld2_test */,
 				D27BD4E91F979E2B00608E75 /* cld2_test_full */,
+				D27BD50A1F97A5E300608E75 /* cld2Swift.framework */,
+				D27BD5121F97A5E400608E75 /* cld2SwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,6 +432,7 @@
 		D27BD4E11F979D9800608E75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D27BD5261F97A6FE00608E75 /* libc++.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -411,6 +461,25 @@
 				D27BD4FE1F979EA700608E75 /* test_version.txt */,
 			);
 			path = docs;
+			sourceTree = "<group>";
+		};
+		D27BD50B1F97A5E300608E75 /* cld2Swift */ = {
+			isa = PBXGroup;
+			children = (
+				D27BD50C1F97A5E300608E75 /* cld2Swift.h */,
+				D27BD50D1F97A5E300608E75 /* Info.plist */,
+				D27BD5211F97A5F400608E75 /* LanguageDetector.swift */,
+			);
+			path = cld2Swift;
+			sourceTree = "<group>";
+		};
+		D27BD5161F97A5E400608E75 /* cld2SwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				D27BD5171F97A5E400608E75 /* cld2SwiftTests.swift */,
+				D27BD5191F97A5E400608E75 /* Info.plist */,
+			);
+			path = cld2SwiftTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +520,14 @@
 				D27BD49F1F979CFB00608E75 /* utf8scannot_lettermarkspecial.h in Headers */,
 				D27BD49E1F979CFB00608E75 /* utf8repl_lettermarklower.h in Headers */,
 				D27BD5021F97A12A00608E75 /* compact_lang_det_c.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D27BD5071F97A5E300608E75 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27BD51A1F97A5E400608E75 /* cld2Swift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,12 +587,50 @@
 			productReference = D27BD4E91F979E2B00608E75 /* cld2_test_full */;
 			productType = "com.apple.product-type.tool";
 		};
+		D27BD5091F97A5E300608E75 /* cld2Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D27BD51B1F97A5E400608E75 /* Build configuration list for PBXNativeTarget "cld2Swift" */;
+			buildPhases = (
+				D27BD5051F97A5E300608E75 /* Sources */,
+				D27BD5061F97A5E300608E75 /* Frameworks */,
+				D27BD5071F97A5E300608E75 /* Headers */,
+				D27BD5081F97A5E300608E75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D27BD5241F97A6F400608E75 /* PBXTargetDependency */,
+			);
+			name = cld2Swift;
+			productName = cld2Swift;
+			productReference = D27BD50A1F97A5E300608E75 /* cld2Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D27BD5111F97A5E400608E75 /* cld2SwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D27BD51E1F97A5E400608E75 /* Build configuration list for PBXNativeTarget "cld2SwiftTests" */;
+			buildPhases = (
+				D27BD50E1F97A5E400608E75 /* Sources */,
+				D27BD50F1F97A5E400608E75 /* Frameworks */,
+				D27BD5101F97A5E400608E75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D27BD5151F97A5E400608E75 /* PBXTargetDependency */,
+			);
+			name = cld2SwiftTests;
+			productName = cld2SwiftTests;
+			productReference = D27BD5121F97A5E400608E75 /* cld2SwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D27BD4251F979C0C00608E75 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = yuryybk;
 				TargetAttributes = {
@@ -528,6 +643,15 @@
 						ProvisioningStyle = Automatic;
 					};
 					D27BD4E81F979E2B00608E75 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					D27BD5091F97A5E300608E75 = {
+						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+					D27BD5111F97A5E400608E75 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -548,9 +672,28 @@
 				D27BD42C1F979C0C00608E75 /* cld2 */,
 				D27BD4D41F979D6B00608E75 /* cld2_test */,
 				D27BD4E81F979E2B00608E75 /* cld2_test_full */,
+				D27BD5091F97A5E300608E75 /* cld2Swift */,
+				D27BD5111F97A5E400608E75 /* cld2SwiftTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D27BD5081F97A5E300608E75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D27BD5101F97A5E400608E75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D27BD4291F979C0C00608E75 /* Sources */ = {
@@ -621,6 +764,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D27BD5051F97A5E300608E75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27BD5221F97A5F400608E75 /* LanguageDetector.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D27BD50E1F97A5E400608E75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27BD5181F97A5E400608E75 /* cld2SwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -633,6 +792,16 @@
 			isa = PBXTargetDependency;
 			target = D27BD42C1F979C0C00608E75 /* cld2 */;
 			targetProxy = D27BD4F01F979E3300608E75 /* PBXContainerItemProxy */;
+		};
+		D27BD5151F97A5E400608E75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D27BD5091F97A5E300608E75 /* cld2Swift */;
+			targetProxy = D27BD5141F97A5E400608E75 /* PBXContainerItemProxy */;
+		};
+		D27BD5241F97A6F400608E75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D27BD42C1F979C0C00608E75 /* cld2 */;
+			targetProxy = D27BD5231F97A6F400608E75 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -798,6 +967,92 @@
 			};
 			name = Release;
 		};
+		D27BD51C1F97A5E400608E75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = cld2Swift/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yuryybk.cld2Swift;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Modules/cld2";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D27BD51D1F97A5E400608E75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = cld2Swift/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yuryybk.cld2Swift;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/Modules/cld2";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D27BD51F1F97A5E400608E75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = cld2SwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yuryybk.cld2SwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		D27BD5201F97A5E400608E75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = cld2SwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yuryybk.cld2SwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -833,6 +1088,24 @@
 			buildConfigurations = (
 				D27BD4EE1F979E2B00608E75 /* Debug */,
 				D27BD4EF1F979E2B00608E75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D27BD51B1F97A5E400608E75 /* Build configuration list for PBXNativeTarget "cld2Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D27BD51C1F97A5E400608E75 /* Debug */,
+				D27BD51D1F97A5E400608E75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D27BD51E1F97A5E400608E75 /* Build configuration list for PBXNativeTarget "cld2SwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D27BD51F1F97A5E400608E75 /* Debug */,
+				D27BD5201F97A5E400608E75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

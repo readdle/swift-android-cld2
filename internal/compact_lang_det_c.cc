@@ -17,12 +17,13 @@ char** detectLanguages(const char* buffer,
     CLD2::Language langs[3];
     int percents[3];
     bool is_reliable = false;
+    int text_bytes = 0;
     DetectLanguageSummary(buffer,
                           buffer_length,
                           is_plain_text,
                           langs,
                           percents,
-                          NULL,
+                          &text_bytes,
                           &is_reliable);
     
     for (int i = 0; i < 3; i++) {

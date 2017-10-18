@@ -1,1 +1,1 @@
-#include "../../../../compact_lang_det_c.h"
+#include "compact_lang_det_c.h"
