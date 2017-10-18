@@ -85,6 +85,8 @@
 		D27BD4E41F979E0600608E75 /* cld2_unittest.cc in Sources */ = {isa = PBXBuildFile; fileRef = D27BD4E31F979E0600608E75 /* cld2_unittest.cc */; };
 		D27BD4F21F979E3800608E75 /* libcld2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D27BD42D1F979C0C00608E75 /* libcld2.a */; };
 		D27BD4F41F979E4C00608E75 /* cld2_unittest_full.cc in Sources */ = {isa = PBXBuildFile; fileRef = D27BD4F31F979E4C00608E75 /* cld2_unittest_full.cc */; };
+		D27BD5021F97A12A00608E75 /* compact_lang_det_c.h in Headers */ = {isa = PBXBuildFile; fileRef = D27BD5011F97A12A00608E75 /* compact_lang_det_c.h */; };
+		D27BD5041F97A1F200608E75 /* compact_lang_det_c.cc in Sources */ = {isa = PBXBuildFile; fileRef = D27BD5031F97A1F200608E75 /* compact_lang_det_c.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +219,8 @@
 		D27BD4FE1F979EA700608E75 /* test_version.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_version.txt; path = ../../../../docs/test_version.txt; sourceTree = "<group>"; };
 		D27BD4FF1F979EA700608E75 /* evaluate_cld2_large_20140122.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = evaluate_cld2_large_20140122.txt; path = ../../../../docs/evaluate_cld2_large_20140122.txt; sourceTree = "<group>"; };
 		D27BD5001F979EA700608E75 /* CLD2UnitTestOutputVerbose.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = CLD2UnitTestOutputVerbose.html; path = ../../../../docs/CLD2UnitTestOutputVerbose.html; sourceTree = "<group>"; };
+		D27BD5011F97A12A00608E75 /* compact_lang_det_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = compact_lang_det_c.h; path = ../../../../public/compact_lang_det_c.h; sourceTree = "<group>"; };
+		D27BD5031F97A1F200608E75 /* compact_lang_det_c.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = compact_lang_det_c.cc; path = ../../../../internal/compact_lang_det_c.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +284,7 @@
 		D27BD43B1F979C2800608E75 /* internal */ = {
 			isa = PBXGroup;
 			children = (
+				D27BD5031F97A1F200608E75 /* compact_lang_det_c.cc */,
 				D27BD4441F979CF200608E75 /* cld_generated_cjk_delta_bi_4.cc */,
 				D27BD44D1F979CF300608E75 /* cld_generated_cjk_delta_bi_32.cc */,
 				D27BD4461F979CF300608E75 /* cld_generated_cjk_uni_prop_80.cc */,
@@ -359,6 +364,7 @@
 		D27BD43C1F979C2D00608E75 /* public */ = {
 			isa = PBXGroup;
 			children = (
+				D27BD5011F97A12A00608E75 /* compact_lang_det_c.h */,
 				D27BD43D1F979C4B00608E75 /* compact_lang_det.h */,
 				D27BD43E1F979C4B00608E75 /* encodings.h */,
 			);
@@ -444,6 +450,7 @@
 				D27BD4B81F979CFB00608E75 /* cldutil_shared.h in Headers */,
 				D27BD49F1F979CFB00608E75 /* utf8scannot_lettermarkspecial.h in Headers */,
 				D27BD49E1F979CFB00608E75 /* utf8repl_lettermarklower.h in Headers */,
+				D27BD5021F97A12A00608E75 /* compact_lang_det_c.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +576,7 @@
 				D27BD4B61F979CFB00608E75 /* cldutil.cc in Sources */,
 				D27BD4C21F979CFB00608E75 /* tote.cc in Sources */,
 				D27BD4A81F979CFB00608E75 /* cld2_generated_distinctocta0122.cc in Sources */,
+				D27BD5041F97A1F200608E75 /* compact_lang_det_c.cc in Sources */,
 				D27BD4C61F979CFB00608E75 /* lang_script.cc in Sources */,
 				D27BD4BF1F979CFB00608E75 /* scoreonescriptspan.cc in Sources */,
 				D27BD48C1F979CFB00608E75 /* cld_generated_cjk_delta_bi_4.cc in Sources */,
@@ -736,7 +744,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_STYLE = Automatic;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -749,7 +757,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CODE_SIGN_STYLE = Automatic;
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
