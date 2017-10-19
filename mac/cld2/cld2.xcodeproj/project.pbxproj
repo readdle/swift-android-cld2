@@ -245,7 +245,7 @@
 		D27BD50C1F97A5E300608E75 /* cld2Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cld2Swift.h; sourceTree = "<group>"; };
 		D27BD50D1F97A5E300608E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D27BD5121F97A5E400608E75 /* cld2SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cld2SwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D27BD5171F97A5E400608E75 /* cld2SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cld2SwiftTests.swift; sourceTree = "<group>"; };
+		D27BD5171F97A5E400608E75 /* cld2SwiftTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cld2SwiftTests.swift; sourceTree = "<group>"; };
 		D27BD5191F97A5E400608E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D27BD5211F97A5F400608E75 /* LanguageDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDetector.swift; sourceTree = "<group>"; };
 		D27BD5261F97A6FE00608E75 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
