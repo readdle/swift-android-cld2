@@ -45,11 +45,13 @@ Language ScoreOneLine(const char* buffer, int buffer_length,
   int text_bytes;
   bool is_reliable;
   Language summary_lang;
+  bool strict_mode = true;
 
   summary_lang = DetectLanguageSummaryV2(
                         buffer,
                         buffer_length,
                         is_plain_text,
+                        strict_mode,
                         cld_hints,
                         allow_extended_lang,
                         flags,

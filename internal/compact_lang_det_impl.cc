@@ -1708,6 +1708,7 @@ Language DetectLanguageSummaryV2(
                         const char* buffer,
                         int buffer_length,
                         bool is_plain_text,
+                        bool strict_mode,
                         const CLDHints* cld_hints,
                         bool allow_extended_lang,
                         int flags,
@@ -1888,6 +1889,7 @@ Language DetectLanguageSummaryV2(
                             buffer,
                             buffer_length,
                             is_plain_text,
+                            strict_mode,
                             cld_hints,
                             allow_extended_lang,
                             flags | kCLDFlagSqueeze,
@@ -1938,7 +1940,8 @@ Language DetectLanguageSummaryV2(
     ScoreOneScriptSpan(scriptspan,
                        &scoringcontext,
                        &doc_tote,
-                       resultchunkvector);
+                       resultchunkvector,
+                       strict_mode);
 
     total_text_bytes += scriptspan.text_bytes;
   }     // End while (ss.GetOneScriptSpanLower())
@@ -1996,7 +1999,8 @@ Language DetectLanguageSummaryV2(
 
     // Move bytes for unreliable langs to another lang or UNKNOWN
     if (!FlagBestEffort(flags)) {
-      RemoveUnreliableLanguages(&doc_tote, FLAGS_cld2_html, FLAGS_cld2_quiet);
+        if (strict_mode)
+            RemoveUnreliableLanguages(&doc_tote, FLAGS_cld2_html, FLAGS_cld2_quiet);
     }
 
     // Redo the result extraction after the removal above
@@ -2069,6 +2073,7 @@ Language DetectLanguageSummaryV2(
                         buffer,
                         buffer_length,
                         is_plain_text,
+                        strict_mode,
                         cld_hints,
                         allow_extended_lang,
                         flags | kCLDFlagTop40 | kCLDFlagRepeats |
@@ -2092,6 +2097,7 @@ Language DetectLanguageSummaryV2(
                         buffer,
                         buffer_length,
                         is_plain_text,
+                        strict_mode,
                         cld_hints,
                         allow_extended_lang,
                         flags | kCLDFlagTop40 | kCLDFlagRepeats |

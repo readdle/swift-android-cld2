@@ -448,10 +448,12 @@ void LangDetLinesOfFile(int flags, bool get_vector, const char* fname) {
     flags |= kCLDFlagQuiet;
 
     CLDHints cldhints = {NULL, tldhint, enchint, langhint};
+    bool strict_mode = true;
 
     summary_lang = DetectLanguageSummaryV2(
                       src, src_len,
                       is_plain_text,
+                      strict_mode,
                       &cldhints,
                       allow_extended_lang,
                       flags,

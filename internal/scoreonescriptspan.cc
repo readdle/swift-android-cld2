@@ -303,13 +303,17 @@ void ScoreAllHits(const char* text,  ULScript ulscript,
 
 
 void SummaryBufferToDocTote(const SummaryBuffer* summarybuffer,
-                            bool more_to_come, DocTote* doc_tote) {
+                            bool more_to_come, DocTote* doc_tote,
+                            bool strict_mode) {
   int cs_bytes_sum = 0;
   for (int i = 0; i < summarybuffer->n; ++i) {
     const ChunkSummary* cs = &summarybuffer->chunksummary[i];
     int reliability = minint(cs->reliability_delta, cs->reliability_score);
     // doc_tote uses full languages
     doc_tote->Add(cs->lang1, cs->bytes, cs->score1, reliability);
+    if (!strict_mode) {
+      doc_tote->Add(cs->lang2, cs->bytes, cs->score2, reliability);
+    }
     cs_bytes_sum += cs->bytes;
   }
 }
@@ -1070,7 +1074,8 @@ void ProcessHitBuffer(const LangSpan& scriptspan,
                       DocTote* doc_tote,
                       ResultChunkVector* vec,
                       bool more_to_come, bool score_cjk,
-                      ScoringHitBuffer* hitbuffer) {
+                      ScoringHitBuffer* hitbuffer,
+                      bool strict_mode) {
   if (scoringcontext->flags_cld2_verbose) {
     fprintf(scoringcontext->debug_file, "Hitbuffer[) ");
     DumpHitBuffer(scoringcontext->debug_file, scriptspan.text, hitbuffer);
@@ -1110,7 +1115,7 @@ void ProcessHitBuffer(const LangSpan& scriptspan,
     }
   }
 
-  SummaryBufferToDocTote(&summarybuffer, more_to_come, doc_tote);
+  SummaryBufferToDocTote(&summarybuffer, more_to_come, doc_tote, strict_mode);
   SummaryBufferToVector(scoringcontext->scanner, scriptspan.text,
                         &summarybuffer, more_to_come, vec);
 }
@@ -1201,8 +1206,9 @@ void ScoreCJKScriptSpan(const LangSpan& scriptspan,
     //
     bool more_to_come = next_offset < letter_limit;
     bool score_cjk = true;
+    bool strict_mode = true;
     ProcessHitBuffer(scriptspan, letter_offset, scoringcontext, doc_tote, vec,
-                     more_to_come, score_cjk, hitbuffer);
+                     more_to_come, score_cjk, hitbuffer, strict_mode);
     SpliceHitBuffer(hitbuffer, next_offset);
 
     letter_offset = next_offset;
@@ -1231,7 +1237,8 @@ void ScoreCJKScriptSpan(const LangSpan& scriptspan,
 void ScoreQuadScriptSpan(const LangSpan& scriptspan,
                          ScoringContext* scoringcontext,
                          DocTote* doc_tote,
-                         ResultChunkVector* vec) {
+                         ResultChunkVector* vec,
+                         bool strict_mode) {
   // Allocate three parallel arrays of scoring hits
   ScoringHitBuffer* hitbuffer = new ScoringHitBuffer;
   hitbuffer->init();
@@ -1267,7 +1274,7 @@ void ScoreQuadScriptSpan(const LangSpan& scriptspan,
     bool more_to_come = next_offset < letter_limit;
     bool score_cjk = false;
     ProcessHitBuffer(scriptspan, letter_offset, scoringcontext, doc_tote, vec,
-                     more_to_come, score_cjk, hitbuffer);
+                     more_to_come, score_cjk, hitbuffer, strict_mode);
     SpliceHitBuffer(hitbuffer, next_offset);
 
     letter_offset = next_offset;
@@ -1302,7 +1309,8 @@ void ScoreQuadScriptSpan(const LangSpan& scriptspan,
 void ScoreOneScriptSpan(const LangSpan& scriptspan,
                         ScoringContext* scoringcontext,
                         DocTote* doc_tote,
-                        ResultChunkVector* vec) {
+                        ResultChunkVector* vec,
+                        bool strict_mode) {
   if (scoringcontext->flags_cld2_verbose) {
     fprintf(scoringcontext->debug_file, "<br>ScoreOneScriptSpan(%s,%d) ",
             ULScriptCode(scriptspan.ulscript), scriptspan.text_bytes);
@@ -1327,7 +1335,7 @@ void ScoreOneScriptSpan(const LangSpan& scriptspan,
     ScoreCJKScriptSpan(scriptspan, scoringcontext, doc_tote, vec);
     break;
   case RTypeMany:
-    ScoreQuadScriptSpan(scriptspan, scoringcontext, doc_tote, vec);
+    ScoreQuadScriptSpan(scriptspan, scoringcontext, doc_tote, vec, strict_mode);
     break;
   }
 }

@@ -188,6 +188,7 @@ namespace CLD2 {
                           const char* buffer,
                           int buffer_length,
                           bool is_plain_text,
+                          bool strict_mode,
                           Language* language3,
                           int* percent3,
                           int* text_bytes,

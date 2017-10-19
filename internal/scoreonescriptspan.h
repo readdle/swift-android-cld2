@@ -283,13 +283,15 @@ void ScoreCJKScriptSpan(const LangSpan& scriptspan,
 void ScoreQuadScriptSpan(const LangSpan& scriptspan,
                          ScoringContext* scoringcontext,
                          DocTote* doc_tote,
-                         ResultChunkVector* vec);
+                         ResultChunkVector* vec,
+                         bool strict_mode);
 
 // Score one scriptspan into doc_tote and vec, updating scoringcontext
 void ScoreOneScriptSpan(const LangSpan& scriptspan,
                         ScoringContext* scoringcontext,
                         DocTote* doc_tote,
-                        ResultChunkVector* vec);
+                        ResultChunkVector* vec,
+                        bool strict_mode);
 
 }       // End namespace CLD2
 

@@ -15,7 +15,8 @@ extern "C" {
 #endif
     
     char** detectLanguages(const char* buffer,
-                            int buffer_length);
+                           int buffer_length,
+                           char strict_mode);
     
     void releaseLanguages(char** langs);
     

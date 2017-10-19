@@ -72,11 +72,12 @@ Language DetectLanguage(
   int encoding_hint = UNKNOWN_ENCODING;
   Language language_hint = UNKNOWN_LANGUAGE;
   CLDHints cldhints = {NULL, tld_hint, encoding_hint, language_hint};
-
+  bool strict_mode = true;
   Language lang = DetectLanguageSummaryV2(
                           buffer,
                           buffer_length,
                           is_plain_text,
+                          strict_mode,
                           &cldhints,
                           allow_extended_lang,
                           flags,
@@ -99,6 +100,7 @@ Language DetectLanguageSummary(
                           const char* buffer,
                           int buffer_length,
                           bool is_plain_text,
+                          bool strict_mode,
                           Language* language3,
                           int* percent3,
                           int* text_bytes,
@@ -116,6 +118,7 @@ Language DetectLanguageSummary(
                           buffer,
                           buffer_length,
                           is_plain_text,
+                          strict_mode,
                           &cldhints,
                           allow_extended_lang,
                           flags,
@@ -151,11 +154,12 @@ Language DetectLanguageSummary(
   int flags = 0;
   Language plus_one = UNKNOWN_LANGUAGE;
   CLDHints cldhints = {NULL, tld_hint, encoding_hint, language_hint};
-
+  bool strict_mode = true;
   Language lang = DetectLanguageSummaryV2(
                           buffer,
                           buffer_length,
                           is_plain_text,
+                          strict_mode,
                           &cldhints,
                           allow_extended_lang,
                           flags,
@@ -194,11 +198,13 @@ Language ExtDetectLanguageSummary(
   int encoding_hint = UNKNOWN_ENCODING;
   Language language_hint = UNKNOWN_LANGUAGE;
   CLDHints cldhints = {NULL, tld_hint, encoding_hint, language_hint};
-
+  bool strict_mode = true;
+    
   Language lang = DetectLanguageSummaryV2(
                           buffer,
                           buffer_length,
                           is_plain_text,
+                          strict_mode,
                           &cldhints,
                           allow_extended_lang,
                           flags,
@@ -234,11 +240,12 @@ Language ExtDetectLanguageSummary(
   int flags = 0;
   Language plus_one = UNKNOWN_LANGUAGE;
   CLDHints cldhints = {NULL, tld_hint, encoding_hint, language_hint};
-
+  bool strict_mode = true;
   Language lang = DetectLanguageSummaryV2(
                           buffer,
                           buffer_length,
                           is_plain_text,
+                          strict_mode,
                           &cldhints,
                           allow_extended_lang,
                           flags,
@@ -274,11 +281,13 @@ Language ExtDetectLanguageSummary(
   int flags = 0;
   Language plus_one = UNKNOWN_LANGUAGE;
   CLDHints cldhints = {NULL, tld_hint, encoding_hint, language_hint};
-
+    bool strict_mode = true;
+    
   Language lang = DetectLanguageSummaryV2(
                           buffer,
                           buffer_length,
                           is_plain_text,
+                          strict_mode,
                           &cldhints,
                           allow_extended_lang,
                           flags,
@@ -335,11 +344,13 @@ Language ExtDetectLanguageSummaryCheckUTF8(
 
   bool allow_extended_lang = true;
   Language plus_one = UNKNOWN_LANGUAGE;
+  bool strict_mode = true;
 
   Language lang = DetectLanguageSummaryV2(
                           buffer,
                           buffer_length,
                           is_plain_text,
+                          strict_mode,
                           cld_hints,
                           allow_extended_lang,
                           flags,
@@ -383,11 +394,13 @@ Language ExtDetectLanguageSummary(
                         bool* is_reliable) {
   bool allow_extended_lang = true;
   Language plus_one = UNKNOWN_LANGUAGE;
+  bool strict_mode = true;
 
   Language lang = DetectLanguageSummaryV2(
                           buffer,
                           buffer_length,
                           is_plain_text,
+                          strict_mode,
                           cld_hints,
                           allow_extended_lang,
                           flags,

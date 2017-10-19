@@ -164,6 +164,7 @@ At the end of the first pass --
                         const char* buffer,
                         int buffer_length,
                         bool is_plain_text,
+                        bool strict_mode,
                         const CLDHints* cld_hints,
                         bool allow_extended_lang,
                         int flags,

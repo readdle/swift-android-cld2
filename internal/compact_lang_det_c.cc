@@ -8,9 +8,11 @@
 
 #include "compact_lang_det.h"
 #include "compact_lang_det_c.h"
+#include "encodings.h"
 
 char** detectLanguages(const char* buffer,
-                       int buffer_length) {
+                       int buffer_length,
+                       char strict_mode) {
     
     char** result = new char*[3];
     bool is_plain_text = false;
@@ -21,6 +23,7 @@ char** detectLanguages(const char* buffer,
     DetectLanguageSummary(buffer,
                           buffer_length,
                           is_plain_text,
+                          (bool)strict_mode,
                           langs,
                           percents,
                           &text_bytes,
