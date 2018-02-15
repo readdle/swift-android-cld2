@@ -19,6 +19,7 @@ class cld2SwiftTests: XCTestCase {
     let test_uk_Date = "18 бер. 2015 12:37, користувач \"Andery Andreev\" <andrey@andreev.com>"
     let test_en_Date = "On 31 January 2017 at 15:02, Lars Larsén"
     let test_sv_Date = "Från: Yukio Yukiosman [mailto:yukio.yukiosman@yukiosman.com]\nSkickat: den 31 januari 2017 08:49"
+    let test_nl_Date = "Skickat: den 1 februari 2017 14:47"
     
     
     override func setUp() {
@@ -64,6 +65,11 @@ class cld2SwiftTests: XCTestCase {
     func testSVDate() {
         let result = LanguageDetector.detectLanguage(string: test_sv_Date)
         XCTAssert(result.contains("sv"))
+    }
+    
+    func testNLDate() {
+        let result = LanguageDetector.detectLanguage(string: test_nl_Date)
+        XCTAssert(result.contains("nl"))
     }
     
     func testPerformanceExample() {
