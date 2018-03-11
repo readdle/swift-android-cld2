@@ -20,8 +20,6 @@ public class LanguageDetector {
             dataPtr = body
         })
         
-        try? data!.write(to: URL.init(fileURLWithPath: "/Users/yury/Projects/Git/Readdle/data/uk_output.txt", isDirectory: false))
-        
         let langPtrs = detectLanguages(dataPtr, Int32(data?.count ?? 0), 0)
         for i in 0 ..< 3 {
             if let ptr = langPtrs?[i] {
