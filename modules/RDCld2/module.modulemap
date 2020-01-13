@@ -1,0 +1,4 @@
+module RDCld2 [extern_c] {
+    header "compact_lang_det_c.h"
+    export *
+}
