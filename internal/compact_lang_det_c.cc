@@ -10,32 +10,36 @@
 #include "compact_lang_det_c.h"
 #include "encodings.h"
 
-char** detectLanguages(const char* buffer,
-                       int buffer_length,
-                       char strict_mode) {
-    
-    char** result = new char*[3];
-    bool is_plain_text = false;
+CLanguageDetectionResult detectLanguages(const char* buffer,
+        int buffer_length,
+        char strict_mode,
+        char is_plain_text) {
+    const char** result = new const char*[3];
     CLD2::Language langs[3];
-    int percents[3];
+    int* percents = new int[3];
     bool is_reliable = false;
     int text_bytes = 0;
     DetectLanguageSummary(buffer,
-                          buffer_length,
-                          is_plain_text,
-                          (bool)strict_mode,
-                          langs,
-                          percents,
-                          &text_bytes,
-                          &is_reliable);
-    
+            buffer_length,
+            (bool)is_plain_text,
+            (bool)strict_mode,
+            langs,
+            percents,
+            &text_bytes,
+            &is_reliable);
     for (int i = 0; i < 3; i++) {
-        const char* langCode = LanguageCode(langs[i]);
-        result[i] = const_cast<char*>(langCode);
+        result[i] = LanguageCode(langs[i]);
     }
-    return result;
+    struct CLanguageDetectionResult r = {
+            result,
+            percents,
+            text_bytes,
+            static_cast<char>(is_reliable ? 1 : 0)
+    };
+    return r;
 }
 
-void releaseLanguages(char** langs) {
-    delete langs;
+void CLanguageDetectionResultRelease(CLanguageDetectionResult result) {
+    delete result.language3;
+    delete result.percent3;
 }
