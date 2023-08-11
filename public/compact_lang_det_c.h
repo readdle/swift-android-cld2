@@ -13,6 +13,12 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+    char** detectLanguages(const char* buffer,
+                           int buffer_length,
+                           char strict_mode);
+    
+    void releaseLanguages(char** langs);
     
     struct CLanguageDetectionResult {
         const char** language3;
@@ -22,7 +28,7 @@ extern "C" {
     };
     typedef struct CLanguageDetectionResult CLanguageDetectionResult;
 
-    CLanguageDetectionResult detectLanguages(const char* buffer,
+    CLanguageDetectionResult detectLanguagesV2(const char* buffer,
             int buffer_length,
             char strict_mode,
             char is_plain_text);
